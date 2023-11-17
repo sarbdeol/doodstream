@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie List</title>
+    
+    
+    <link rel="icon" href="/static/icon2.png" type="image/png">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-2">
+        <nav>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="/bollywood">Bollywood</a></li>
+                <li class="list-inline-item"><a href="/hollywood">Hollywood</a></li>
+                <li class="list-inline-item"><a href="/punjabi">Punjabi</a></li>
+                <li class="list-inline-item"><a href="/web-series">Web Series</a></li>
+            </ul>
+        </nav>
+         <!-- Movie search form -->
+         <form method="post" action="/search">
+            <div class="search-bar my-3">
+                <input type="text" name="search_query" class="form-control d-inline-block mr-2" placeholder="Search">
+                <button type="submit" class="btn btn-light">Search</button>
+            </div>
+        </form>
+
+        <div id="search-results">
+            <!-- Display movie search results here -->
+        </div>
+
+        <div id="no-results-message" style="display: none;">
+            No results found. Please request the movie below.
+        </div>
+    </header>
+
+    <h1>Bollywood Movie List</h1>
+    <div class="movie-container">
+        <div class="row">
+            {% for movie in movies %}
+                {% if movie['fld_id']=='1113099' %}
+                    <div class="col-3">
+                        <div class="movie-card">
+                            <h2>{{ movie['title'] }}</h2>
+                            <img src="{{ movie['single_img'] }}" alt="{{ movie['title'] }} Image">
+                            <a href="/bollywood/{{movie['file_code']}}" target="{{ movie['title'] }}">Download</a>
+                        </div>
+                    </div>
+                    {% if loop.index is divisibleby(4) %}
+                        </div><div class="row">
+                    {% endif %}
+                {% endif %}
+                 
+            {% endfor %}
+        </div>
+    </div>
+    
+
+    <footer>
+        &copy; 2023 Your Movie Website. All rights reserved.
+    </footer>
+</body>
+
+</html>

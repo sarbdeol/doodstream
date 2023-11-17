@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.col-3 {
+    flex: 0 0 calc(25% - 20px);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col-3:last-child {
+    margin-right: 0;
+}
+
+.movie-card h2 {
+    font-size: 1.4rem;
+    height: 86px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.movie-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+.movie-card  a {
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
+
+.movie-card a:hover {
+    background-color: #555;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .movie-container {
+        padding: 10px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .col-3 {
+        flex: 0 0 calc(50% - 10px);
+        margin-right: 10px;
+        padding: 10px;
+    }
+
+    .col-3:last-child {
+        margin-right: 0;
+    }
+}
+
+/* Media Query for Even Smaller Screens */
+@media (max-width: 480px) {
+    .col-3 {
+        flex: 0 0 100%;
+        margin-right: 0;
+    }
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    display: block;
+    margin: 20px 0;
+    text-decoration: none;
+    margin: 10px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    background-color: #ffffff00;
+    color: #555454;
+}
+
+/* Search bar styles */
+.search-bar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search-bar input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    border: -1px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+}
+
+.comment-box {
+    width: 500px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    
+}
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-item {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+.comment-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    resize: none; /* Disable text area resizing */
+    margin-bottom: 5px;
+    padding: 10px;
+    
+}
+.comment-button {
+    width: 50%;
+    height: 15%; /* Adjust the height as needed */
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.movie-details {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.movie-details h2 {
+    color: #333;
+    font-size: 18px;
+}
+.movie-details p {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+}
+hr {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.most-watched {
+    background-color: #fff;
+    padding: 20px 0;
+}
+.most-watched h2 {
+    font-size: 20px;
+}
+.most-watched ul {
+    list-style-type: none;
+    padding: 0;
+}
+.most-watched li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}

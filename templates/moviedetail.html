@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/static/icon2.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 4px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .movie-details a {
+            display: block;
+            margin: 20px 0;
+            text-decoration: none;
+            margin: 10px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            background-color: #3d3d3d;
+        }
+        .movie-details a:hover {
+            background-color: #555;
+            color: #333;
+        }
+        .download a {
+            display: block;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+            text-decoration: none;
+            margin: 10px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            background-color: #3d3d3d;
+        }
+        .download a:hover {
+            background-color: #555;
+            color: #333;
+        }
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 480px;
+            margin: 20px auto;
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .movie-details {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .movie-details h2 {
+            color: #333;
+            font-size: 18px;
+        }
+        .movie-details p {
+            color: #666;
+            font-size: 16px;
+            text-align: center;
+        }
+        hr {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-dark text-white text-center py-2">
+        <nav>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="/">Home</a></li>
+                <li class="list-inline-item"><a href="/bollywood">Bollywood</a></li>
+                <li class="list-inline-item"><a href="/hollywood">Hollywood</a></li>
+                <li class="list-inline-item"><a href="/punjabi">Punjabi</a></li>
+                <li class="list-inline-item"><a href="/web-series">Web Series</a></li>
+            </ul>
+        </nav>
+        <!-- Movie search form -->
+        <form method="post" action="/search">
+            <div class="search-bar my-3">
+                <input type="text" name="search_query" class="form-control d-inline-block mr-2" placeholder="Search">
+                <button type="submit" class="btn btn-light">Search</button>
+            </div>
+        </form>
+
+        <div id="search-results">
+            <!-- Display movie search results here -->
+        </div>
+
+        <div id="no-results-message" style="display: none;">
+            No results found. Please request the movie below.
+        </div>
+
+    
+    </header>
+    <h1>{{ movie['title'] }} {{ movie['description']['Year'] }}</h1>
+    
+    <div class="movie-details">
+        <img src="{{ movie['splash_img'] }}" alt="{{ movie['title'] }} Image">
+        <br>
+        <br>
+        <p><strong>Year:</strong> {{ movie['description']['Year'] }}</p>
+        <p><strong>Released:</strong> {{ movie['description']['Released'] }}</p>
+        <p><strong>Runtime:</strong> {{ movie['description']['Runtime'] }}</p>
+        <p><strong>Genre:</strong> {{ movie['description']['Genre'] }}</p>
+        <p><strong>Director:</strong> {{ movie['description']['Director'] }}</p>
+        <p><strong>Writer:</strong> {{ movie['description']['Writer'] }}</p>
+        <p><strong>Actors:</strong> {{ movie['description']['Actors'] }}</p>
+        <p><strong>About:</strong> {{ movie['description']['Plot'] }}</p>
+        <p><strong>Language:</strong> {{ movie['description']['Language'] }}</p>
+        <p><strong>Country:</strong> {{ movie['description']['Country'] }}</p>
+        <p><strong>Awards:</strong> {{ movie['description']['Awards'] }}</p>
+        <p><strong>IMDb Rating:</strong> {{ movie['description']['imdbRating'] }}</p>
+        <p><strong>Metascore:</strong> {{ movie['description']['Metascore'] }}</p>
+        <p><strong>IMDb Votes:</strong> {{ movie['description']['imdbVotes'] }}</p>
+        <p><strong>IMDb ID:</strong> {{ movie['description']['imdbID'] }}</p>
+        <p><strong>Type:</strong> {{ movie['description']['Type'] }}</p>
+        <p><strong>DVD Release:</strong> {{ movie['description']['DVD'] }}</p>
+        <p><strong>Box Office:</strong> {{ movie['description']['BoxOffice'] }}</p>
+        <p><strong>Production:</strong> {{ movie['description']['Production'] }}</p>
+        <p><strong>Website:</strong> {{ movie['description']['Website'] }}</p>
+        <br>
+        <a href="https://ds2play.com/d/{{ movie['file_code'] }}" target="{{ movie['title'] }}">Download</a>
+        <br>
+    </div>
+    <br>
+    <hr>
+    <h3>Watch online </h3>
+    <iframe src="https://ds2play.com/d/{{ movie['file_code'] }}" width="600" height="480" src="https://ds2play.com/e/oqbp1vkfukql" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+    <div class='download'>
+        <a  href="https://ds2play.com/d/{{ movie['file_code'] }}" target="{{ movie['title'] }}">Download</a>
+    </div>
+    <form id="comment-form" method="post" action="/request">
+        <div class="comment-box">
+            <div id="message"></div>
+            <textarea class="comment-input" name="comment" placeholder="Write your comment here..." rows="10"></textarea>
+            <button class="comment-button" type="submit">Request</button>
+        </div>
+        <div id="message"></div>
+
+    </form>
+
+    <footer>
+        &copy; 2023 Your Movie Website. All rights reserved.
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#comment-form").on("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+        
+                var formData = $(this).serialize(); // Serialize form data
+        
+                $.ajax({
+                    type: "POST",
+                    url: "/request",
+                    data: formData,
+                    success: function(response) {
+                        // Handle the response from your Flask server here
+                        var messageDiv = $("#message");
+
+                        if (response && response.message) {
+                            // Display the message in the messageDiv
+                            messageDiv.text(response.message);
+                        } else {
+                            messageDiv.text("An error occurred.");
+                        }
+                        
+                        // You can also update the UI as needed without a full page reload
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle errors if the request fails
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+        </script>
+</body>
+
+
+</html>
