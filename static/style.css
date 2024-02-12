@@ -190,15 +190,23 @@ nav ul li a:hover {
     padding: 10px;
     
 }
+
 .comment-button {
     width: 50%;
     height: 15%; /* Adjust the height as needed */
     background-color: #007BFF;
-    border: none;
+    border: 5px;
     border-radius: 5px;
+    margin-top: 5px;
     color: #fff;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s; /* Add transition for smooth effect */
+}
+
+/* Hover effect for the submit button */
+.comment-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
 }
 
 .movie-details {
@@ -245,4 +253,25 @@ footer {
     color: #fff;
     padding: 20px 0;
     text-align: center;
+}
+.telegram-button {
+    background-color: #0088cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Style for the Telegram logo */
+.telegram-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    vertical-align: middle;
 }

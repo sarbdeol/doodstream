@@ -17,6 +17,9 @@
                 <li class="list-inline-item"><a href="/web-series">Web Series</a></li>
             </ul>
         </nav>
+        <a href="https://t.me/filmyjatt_official" target="_blank" class="telegram-button">
+            Join us on Telegram
+        </a>
          <!-- Movie search form -->
          <form method="post" action="/search">
             <div class="search-bar my-3">
@@ -56,7 +59,16 @@
         </div>
     </div>
     
+    <form id="comment-form" method="post" action="/request">
+        <div class="comment-box">
+            <div id="message"></div>
+            <textarea class="comment-input" name="comment" placeholder="Write your comment here..." rows="10"></textarea>
+            <input class="form-control d-inline-block" name="email" type="email" placeholder="Your email">
+            <button class="comment-button" type="submit">Request</button>
+        </div>
+        <div id="message"></div>
 
+    </form>
     <footer>
         &copy; 2023 Your Movie Website. All rights reserved.
     </footer>

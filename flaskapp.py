@@ -213,8 +213,11 @@ def search_movies():
 @app.route('/request', methods=['POST'])
 def request_movie():
     requested_movie = request.form.get('comment')
+    user_email = request.form.get('email')
     print(requested_movie)
-    
+    data=f'''
+            user email : {user_email}\n
+            user message :{requested_movie}'''
     smtp_server = 'smtp.gmail.com'
     smtp_port = 587  # 587 is the default for TLS, use 465 for SSL
     smtp_username = 'sarbtech123@@gmail.com'
@@ -228,7 +231,7 @@ def request_movie():
     msg['From'] = sender_email
     msg['To'] = recipient_email
     msg['Subject'] = subject
-    msg.attach(MIMEText(requested_movie, 'plain'))
+    msg.attach(MIMEText(data, 'plain'))
     
     try:
         # Connect to the SMTP server and send the email
